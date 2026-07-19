@@ -1,9 +1,9 @@
 # Hunt: WMI-based Lateral Movement
 
 **ATT&CK Technique(s):** T1047 (Windows Management Instrumentation), T1021 (Remote Services)
-**Status:** Draft
+**Status:** Validated (lab data)
 **Author:** <you>
-**Last updated:** <date>
+**Last updated:** 2026-07-19
 
 ## 1. Hypothesis
 
@@ -85,12 +85,39 @@ infra) rather than broad, so real positives aren't filtered out.
 
 ## 7. Outcome / findings
 
-*(Fill in after running against real or lab data — e.g. "Ran across 30 days
-of lab data seeded with Impacket wmiexec activity; hunt caught the seeded
-activity with zero false positives after excluding SCCM. Ready to promote
-to a standing detection.")*
+Ran against a synthetic lab dataset (`lab_data/wmi_process_events.jsonl`, 15
+process-creation events) using `lab_data/run_hunt.py`, which reimplements the
+Sigma selection/filter logic since there's no live SIEM behind this repo.
+
+- 12 of 15 events were WMI-spawned child processes.
+- The known-mgmt filter (`ccmexec.exe`, `SCNotification.exe`) removed 6 SCCM
+  events immediately, as expected from section 5.
+- 6 hits remained. One (`WerFault.exe` on `SRV-MON02`) traced back to the
+  monitoring server's source IP (`10.10.5.20`) and was benign — this is a
+  legitimate-activity pattern not covered by the image-name filter alone,
+  and confirms that image-name allowlisting isn't sufficient by itself;
+  source-context (which host/IP initiated the WMI call) matters too.
+- The remaining 5 hits were a single seeded chain: account `asmith` from
+  `10.10.9.44` (a regular workstation, not a known admin jump box) spawning
+  `cmd.exe`/`rundll32.exe` via WMI across three hosts in ascending order of
+  sensitivity — `WKSTN-017` → `SRV-DB01` → `SRV-DC01` — ending with
+  `vssadmin list shadows` on the domain controller (shadow-copy/backup
+  reconnaissance, a common precursor to credential dumping or ransomware
+  staging).
+- Zero false positives after tuning. The hunt caught the full seeded chain
+  and correctly separated it from SCCM and monitoring-agent noise.
+
+**Caveat:** the lab dataset embeds `SourceIP` directly on the process-creation
+event for convenience. In production this hunt requires joining Sysmon Event
+ID 1 (or 4688) to a 4624 logon-type-3 event on time+host to get the true
+initiating IP — that join is a real implementation detail, not just a filter
+tweak, and should be validated against actual log data before relying on it.
 
 ## 8. Detection follow-up
 
-*(Once validated: note the Sigma rule filename in `queries/sigma/` this was
-promoted to.)*
+Promoted to `queries/sigma/wmi_process_spawn.yml` (status bumped from
+`experimental` to `stable`). Follow-up: extend the rule (or a paired
+correlation search) to flag WMI-spawned processes whose initiating source IP
+is *not* in a maintained allowlist of management/jump-box IPs, rather than
+relying on image-name filtering alone — the `WerFault.exe`/monitoring-server
+false-positive-that-almost-wasn't in this run is the reason why.

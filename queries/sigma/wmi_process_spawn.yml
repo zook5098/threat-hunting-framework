@@ -1,0 +1,28 @@
+title: Process Spawned by WMI
+status: stable
+description: >
+  Detects processes spawned as children of WmiPrvSE.exe, a common technique
+  for WMI-based lateral movement (e.g. Impacket wmiexec.py, Empire, Cobalt
+  Strike jump wmi_exec). Excludes known management-agent noise (SCCM).
+references:
+  - ../../hunts/lateral-movement/wmi-lateral-movement.md
+tags:
+  - attack.t1047
+  - attack.t1021
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    ParentImage|endswith: '\WmiPrvSE.exe'
+  filter_known_mgmt:
+    Image|endswith:
+      - '\SCNotification.exe'
+      - '\ccmexec.exe'
+  condition: selection and not filter_known_mgmt
+falsepositives:
+  - SCCM/ConfigMgr agent activity
+  - Backup or monitoring software that scripts against WMI (validate against
+    known management server IPs — image-name filtering alone is not
+    sufficient, see hunt writeup section 7)
+level: medium
