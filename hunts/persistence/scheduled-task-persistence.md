@@ -2,7 +2,7 @@
 
 **ATT&CK Technique(s):** T1053.005 (Scheduled Task/Job: Scheduled Task)
 **Status:** Validated (lab data)
-**Author:** <you>
+**Author:** Aaron Thummel
 **Last updated:** 2026-07-19
 
 ## 1. Hypothesis
