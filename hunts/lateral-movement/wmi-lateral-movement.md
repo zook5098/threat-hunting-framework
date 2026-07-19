@@ -2,7 +2,7 @@
 
 **ATT&CK Technique(s):** T1047 (Windows Management Instrumentation), T1021 (Remote Services)
 **Status:** Validated (lab data)
-**Author:** <you>
+**Author:** Aaron Thummel
 **Last updated:** 2026-07-19
 
 ## 1. Hypothesis
