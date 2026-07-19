@@ -1,0 +1,30 @@
+title: Abnormal Volume of Kerberos TGS Requests (Kerberoasting)
+status: experimental
+description: >
+  Detects a single account requesting RC4-encrypted Kerberos service
+  tickets (TGS) for an abnormally high number of distinct SPNs within a
+  short window -- the sweep pattern produced by Rubeus (kerberoast) and
+  Impacket's GetUserSPNs.py. RC4 encryption is used as a downgrade/legacy
+  indicator, not as proof of malicious intent by itself.
+references:
+  - ../../hunts/credential-access/kerberoasting.md
+tags:
+  - attack.t1558.003
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4769
+    TicketEncryptionType: '0x17'
+  timeframe: 10m
+  condition: selection | count(ServiceName) by AccountName > 5
+falsepositives:
+  - Backup, monitoring, or scanning service accounts that legitimately
+    enumerate many SPNs -- baseline and allowlist these by account name;
+    do not rely on request timing alone to exclude them (see hunt writeup
+    section 7 caveat)
+  - Environments with legacy service accounts lacking AES support will
+    show routine RC4 ticket issuance; this is expected and only becomes
+    notable at volume
+level: high
