@@ -1,0 +1,35 @@
+title: Suspicious Scheduled Task Creation
+status: experimental
+description: >
+  Detects newly created scheduled tasks (4698) whose command/arguments
+  reference a staged binary or script outside standard install locations,
+  or invoke PowerShell with encoded or hidden-window flags -- a common
+  persistence fallback (T1053.005) when service creation and Run keys are
+  being monitored.
+references:
+  - ../../hunts/persistence/scheduled-task-persistence.md
+tags:
+  - attack.t1053.005
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4698
+  suspicious_content:
+    TaskContent|contains:
+      - '\Users\Public\'
+      - '\AppData\Local\Temp\'
+      - '\ProgramData\'
+      - '-enc '
+      - '-EncodedCommand'
+      - '-w hidden'
+      - '-windowstyle hidden'
+  condition: selection and suspicious_content
+falsepositives:
+  - Software updater tasks (Google, Adobe, Edge, Dropbox, OneDrive) --
+    these point to signed binaries under Program Files and won't match
+  - Internal deployment scripts using `-ExecutionPolicy Bypass` from a
+    Program-Files-hosted script -- deliberately not flagged unless also
+    encoded or hidden-window (see hunt writeup section 5)
+level: high

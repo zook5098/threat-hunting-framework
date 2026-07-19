@@ -44,7 +44,7 @@ Every hunt in `hunts/` follows this format (see `templates/hunt_template.md`):
 | [LOLBin-based lateral movement via WMI](hunts/lateral-movement/wmi-lateral-movement.md) | T1047, T1021 | Validated (lab data) |
 | [Kerberoasting via abnormal TGS request volume](hunts/credential-access/kerberoasting.md) | T1558.003 | Validated (lab data) |
 | Living-off-the-land credential access via comsvcs.dll | T1003.001 | Draft |
-| New scheduled task persistence outside baseline | T1053.005 | Draft |
+| [New scheduled task persistence outside baseline](hunts/persistence/scheduled-task-persistence.md) | T1053.005 | Validated (lab data) |
 | Suspicious parent/child process chains (Office → LOLBin) | T1204, T1059 | Draft |
 
 ## Methodology
