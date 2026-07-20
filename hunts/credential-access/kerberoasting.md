@@ -2,7 +2,7 @@
 
 **ATT&CK Technique(s):** T1558.003 (Steal or Forge Kerberos Tickets: Kerberoasting)
 **Status:** Validated (lab data)
-**Author:** <you>
+**Author:** Aaron Thummel
 **Last updated:** 2026-07-19
 
 ## 1. Hypothesis

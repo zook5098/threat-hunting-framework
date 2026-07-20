@@ -2,7 +2,7 @@
 
 **ATT&CK Technique(s):** T####（sub-technique if applicable）
 **Status:** Draft / Validated / Promoted to detection
-**Author:** <you>
+**Author:** Aaron Thummel
 **Last updated:** <date>
 
 ## 1. Hypothesis
