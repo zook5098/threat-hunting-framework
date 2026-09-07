@@ -1,0 +1,29 @@
+{"Timestamp": "2026-07-14T08:02:10Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "jdoe", "SrcIP": "98.42.11.20", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T08:02:40Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "jdoe", "SrcIP": "98.42.11.20"}
+{"Timestamp": "2026-07-14T07:45:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "bwong", "SrcIP": "142.11.99.5"}
+{"Timestamp": "2026-07-14T09:14:05Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "msmith", "SrcIP": "71.198.4.90"}
+{"Timestamp": "2026-07-14T09:50:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "kpatel", "SrcIP": "24.15.200.3"}
+{"Timestamp": "2026-07-14T10:05:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "login", "Status": "success", "User": "netadmin", "SrcIP": "10.10.1.5", "Ui": "ssh(10.10.1.5)"}
+{"Timestamp": "2026-07-14T10:06:15Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "config-change", "User": "netadmin", "SrcIP": "10.10.1.5", "CfgPath": "firewall.address", "CfgObj": "branch-office-subnet"}
+{"Timestamp": "2026-07-14T10:07:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "logout", "User": "netadmin", "SrcIP": "10.10.1.5"}
+{"Timestamp": "2026-07-14T11:10:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "rlee", "SrcIP": "73.15.88.4"}
+{"Timestamp": "2026-07-14T11:45:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "rlee", "SrcIP": "73.15.88.4", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T12:30:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "rlee", "SrcIP": "73.15.88.4"}
+{"Timestamp": "2026-07-14T13:30:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "kpatel", "SrcIP": "24.15.200.3", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T13:30:25Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "kpatel", "SrcIP": "24.15.200.3"}
+{"Timestamp": "2026-07-14T14:02:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "jdoe", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:02:15Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "msmith", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:02:30Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "administrator", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:02:45Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "admin", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:03:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "test", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:03:15Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "backup", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:03:30Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "guest", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:03:45Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "ssl-login-fail", "User": "svc_vpn", "SrcIP": "185.220.101.7", "Reason": "invalid credentials"}
+{"Timestamp": "2026-07-14T14:04:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "svc_vpn", "SrcIP": "185.220.101.7"}
+{"Timestamp": "2026-07-14T14:05:30Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "login", "Status": "success", "User": "svc_vpn", "SrcIP": "185.220.101.7", "Ui": "https(185.220.101.7)"}
+{"Timestamp": "2026-07-14T14:06:10Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "config-change", "User": "svc_vpn", "SrcIP": "185.220.101.7", "CfgPath": "system.admin", "CfgObj": "svc_maint"}
+{"Timestamp": "2026-07-14T14:07:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "config-change", "User": "svc_vpn", "SrcIP": "185.220.101.7", "CfgPath": "firewall.policy", "CfgObj": "policy_9999"}
+{"Timestamp": "2026-07-14T15:00:00Z", "Devname": "FGT-EDGE01", "Subtype": "vpn", "Action": "tunnel-up", "User": "msmith", "SrcIP": "71.198.4.90"}
+{"Timestamp": "2026-07-14T16:20:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "login", "Status": "success", "User": "netadmin", "SrcIP": "10.10.1.5", "Ui": "ssh(10.10.1.5)"}
+{"Timestamp": "2026-07-14T16:21:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "config-change", "User": "netadmin", "SrcIP": "10.10.1.5", "CfgPath": "firewall.policy", "CfgObj": "policy_42"}
+{"Timestamp": "2026-07-14T16:22:00Z", "Devname": "FGT-EDGE01", "Subtype": "system", "Action": "logout", "User": "netadmin", "SrcIP": "10.10.1.5"}

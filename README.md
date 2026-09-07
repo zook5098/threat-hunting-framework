@@ -10,6 +10,7 @@ Most "threat hunting" repos on GitHub are just query dumps. Hiring managers for 
 
 ```
 hunts/
+  initial-access/
   lateral-movement/
   credential-access/
   persistence/
@@ -41,6 +42,7 @@ Every hunt in `hunts/` follows this format (see `templates/hunt_template.md`):
 
 | Hunt | ATT&CK | Status |
 |---|---|---|
+| [Initial access via FortiGate SSL-VPN (credential stuffing → admin pivot)](hunts/initial-access/fortigate-sslvpn-initial-access.md) | T1190, T1133, T1110.004, T1078 | Validated (lab data) |
 | [LOLBin-based lateral movement via WMI](hunts/lateral-movement/wmi-lateral-movement.md) | T1047, T1021 | Validated (lab data) |
 | [Kerberoasting via abnormal TGS request volume](hunts/credential-access/kerberoasting.md) | T1558.003 | Validated (lab data) |
 | Living-off-the-land credential access via comsvcs.dll | T1003.001 | Draft |
